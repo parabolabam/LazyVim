@@ -1,4 +1,22 @@
 -- NEOTREE
+local function toggle_neotree_focus()
+  -- Check if the current buffer is NeoTree
+  if vim.bo.filetype == "neo-tree" then
+    -- If yes, switch back to the previously focused buffer
+    vim.cmd("wincmd p")
+  else
+    -- If no, open or focus NeoTree
+    vim.cmd("Neotree reveal")
+  end
+end
+
+-- Set a keymap to toggle focus to/from NeoTree
+vim.keymap.set(
+  "n",
+  "<leader>o",
+  toggle_neotree_focus,
+  { noremap = true, silent = true, desc = "Reveal current buffer in tree" }
+)
 
 -- TELESCOPE LIST OPENED BUFFERS
 vim.keymap.set("n", "<Tab>", function()

@@ -95,6 +95,10 @@ return {
           follow_current_file = { enabled = true },
           hijack_netrw_behavior = "open_current",
           use_libuv_file_watcher = true,
+          filtered_items = {
+            visible = false, -- when true, they will just be displayed differently than normal items
+            hide_dotfiles = false,
+          },
         },
         event_handlers = {
           {
