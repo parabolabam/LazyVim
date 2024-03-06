@@ -20,7 +20,9 @@ vim.keymap.set(
 
 -- TELESCOPE LIST OPENED BUFFERS
 vim.keymap.set("n", "<Tab>", function()
-  vim.cmd("Telescope buffers exclude_current_buffer=true")
+  require("telescope.builtin").buffers({ sort_lastused = true, ignore_current_buffer = true })
+
+  -- vim.cmd("Telescope buffers exclude_current_buffer=true sort_lastused=true prompt_prefix=📂")
 end, { noremap = true, silent = true })
 -- TELESCOPE LIST OPENED BUFFERS END
 
