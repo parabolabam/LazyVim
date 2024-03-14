@@ -17,9 +17,16 @@ return {
     },
   },
   {
+    "barrientosvctor/abyss.nvim",
+    opts = {},
+  },
+  {
+    "Mofiqul/vscode.nvim",
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "abyss",
     },
   },
 }

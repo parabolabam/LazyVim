@@ -18,6 +18,17 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Reveal current buffer in tree" }
 )
 
+--TELESCOPE
+
+-- TELESCOPE COMMITS FOR BUFFER
+vim.keymap.set("n", "<leader>gbc", function()
+  require("telescope.builtin").git_bcommits({ layout_strategy = "vertical" })
+end, { noremap = true, silent = true })
+
+-- TELESCOPE COMMITS FOR BUFFER
+vim.keymap.set("n", "<leader>gc", function()
+  require("telescope.builtin").git_commits({ layout_strategy = "vertical" })
+end, { noremap = true, silent = true })
 -- TELESCOPE LIST OPENED BUFFERS
 vim.keymap.set("n", "<Tab>", function()
   require("telescope.builtin").buffers({ sort_lastused = true, ignore_current_buffer = true })
@@ -25,6 +36,14 @@ vim.keymap.set("n", "<Tab>", function()
   -- vim.cmd("Telescope buffers exclude_current_buffer=true sort_lastused=true prompt_prefix=📂")
 end, { noremap = true, silent = true })
 -- TELESCOPE LIST OPENED BUFFERS END
+
+-- RESUME LAST SEARCH
+
+vim.keymap.set("n", "<leader>sr", function()
+  require("telescope.builtin").resume()
+end, { noremap = true, silent = true })
+
+-- TELESCOPE END
 
 -- QUICK SWITCHER
 local function find(file_regex, opts)
@@ -54,3 +73,18 @@ vim.keymap.set(
   { noremap = true, silent = true }
 )
 -- QUICK SWITCHER END
+
+-- SPECTRE
+vim.keymap.set("n", "<leader>h", '<cmd>lua require("spectre").toggle()<CR>', {
+  desc = "Toggle Spectre",
+})
+vim.keymap.set("n", "<leader>hw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+  desc = "Search current word",
+})
+vim.keymap.set("v", "<leader>hw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+  desc = "Search current word",
+})
+vim.keymap.set("n", "<leader>hp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+  desc = "Search on current file",
+})
+-- SPRECTRE END
