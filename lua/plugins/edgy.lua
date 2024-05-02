@@ -57,6 +57,9 @@ return {
           { title = "Neotest Output", ft = "neotest-output-panel", size = { height = 15 } },
         },
         left = {
+          { title = "Spectre", ft = "spectre_panel", size = { width = 0.4 } },
+        },
+        right = {
           {
             title = "Neo-Tree",
             ft = "neo-tree",
@@ -67,12 +70,9 @@ return {
             open = function()
               vim.api.nvim_input("<esc><space>e")
             end,
-            size = { width = 0.15 },
+            size = { width = 0.25 },
           },
           "neo-tree",
-        },
-        right = {
-          { title = "Spectre", ft = "spectre_panel", size = { width = 0.4 } },
         },
         keys = {
           -- increase width

@@ -38,7 +38,6 @@ end, { noremap = true, silent = true })
 -- TELESCOPE LIST OPENED BUFFERS END
 
 -- RESUME LAST SEARCH
-
 vim.keymap.set("n", "<leader>sr", function()
   require("telescope.builtin").resume()
 end, { noremap = true, silent = true })
@@ -88,3 +87,5 @@ vim.keymap.set("n", "<leader>hp", '<cmd>lua require("spectre").open_file_search(
   desc = "Search on current file",
 })
 -- SPRECTRE END
+
+vim.keymap.set({ "i", "x", "n", "s" }, "<cmd-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
