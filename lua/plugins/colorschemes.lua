@@ -15,6 +15,9 @@ return {
         floats = "transparent",
       },
     },
+    config = function()
+      vim.cmd("colorscheme tokyonight")
+    end,
   },
   {
     "barrientosvctor/abyss.nvim",

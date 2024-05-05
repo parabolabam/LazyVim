@@ -89,3 +89,18 @@ vim.keymap.set("n", "<leader>hp", '<cmd>lua require("spectre").open_file_search(
 -- SPRECTRE END
 
 vim.keymap.set({ "i", "x", "n", "s" }, "<cmd-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", { noremap = true, silent = true, desc = "Move to the window above" })
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", { noremap = true, silent = true, desc = "Move to the window below" })
+vim.keymap.set(
+  "n",
+  "<c-h>",
+  ":wincmd h<CR>",
+  { noremap = true, silent = true, desc = "Move to the window on the left" }
+)
+vim.keymap.set(
+  "n",
+  "<c-l>",
+  ":wincmd l<CR>",
+  { noremap = true, silent = true, desc = "Move to the window on the right" }
+)
