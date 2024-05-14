@@ -6,7 +6,7 @@ return {
         if mode == "light" then
           require("vscode").load("light")
         elseif mode == "dark" then
-          vim.cmd("colorscheme slate")
+          vim.cmd("colorscheme tokyonight")
         end
       end,
     })

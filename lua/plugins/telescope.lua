@@ -2,13 +2,22 @@ return {
   {
     "telescope.nvim",
     dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        config = function()
+          require("telescope").load_extension("fzf")
+          require("telescope").load_extension("projects")
+        end,
+      },
 
-        require("telescope").load_extension("projects")
-      end,
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        version = "^1.0.0",
+        config = function()
+          require("telescope").load_extension("live_grep_args")
+        end,
+      },
     },
 
     opts = function()

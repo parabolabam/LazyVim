@@ -42,6 +42,9 @@ vim.keymap.set("n", "<leader>sr", function()
   require("telescope.builtin").resume()
 end, { noremap = true, silent = true })
 
+-- live grep with args
+vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+
 -- TELESCOPE END
 
 -- QUICK SWITCHER
@@ -88,8 +91,8 @@ vim.keymap.set("n", "<leader>hp", '<cmd>lua require("spectre").open_file_search(
 })
 -- SPRECTRE END
 
+-- MISC
 vim.keymap.set({ "i", "x", "n", "s" }, "<cmd-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
-
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", { noremap = true, silent = true, desc = "Move to the window above" })
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", { noremap = true, silent = true, desc = "Move to the window below" })
 vim.keymap.set(
@@ -104,3 +107,7 @@ vim.keymap.set(
   ":wincmd l<CR>",
   { noremap = true, silent = true, desc = "Move to the window on the right" }
 )
+
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "Rename a variable" })
+
+-- MISC END
