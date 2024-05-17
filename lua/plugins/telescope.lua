@@ -20,7 +20,7 @@ return {
       },
     },
 
-    opts = function()
+    config = function()
       local telescopeConfig = require("telescope.config")
 
       -- Clone the default Telescope configuration
@@ -31,18 +31,27 @@ return {
       -- I don't want to search in the `.git` directory.
       table.insert(vimgrep_arguments, "--glob")
       table.insert(vimgrep_arguments, "!**/.git/*")
-      return {
+      require("telescope").setup({
         defaults = {
+          path_display = {
+            "filename_first",
+          },
           -- `hidden = true` is not supported in text grep commands.
           vimgrep_arguments = vimgrep_arguments,
         },
+
         pickers = {
           find_files = {
             -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
             find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+            theme = "dropdown",
+          },
+          git_files = {
+            -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+            theme = "dropdown",
           },
         },
-      }
+      })
     end,
   },
 }
